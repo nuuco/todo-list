@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo 앱</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+    <div id="celebrateBadge" class="celebrate-badge" aria-hidden="true">ALL DONE!</div>
+    <main class="app" aria-live="polite">
+      <header class="app-header">
+        <h1>To Do List</h1>
+        <button id="themeToggleBtn" class="theme-toggle" type="button" aria-label="다크 모드로 전환">
+          <img id="themeIcon" class="theme-icon" src="./assets/icon-moon.svg" alt="" aria-hidden="true" />
+          <span class="visually-hidden">테마 전환</span>
+        </button>
+      </header>
+
+      <section class="input-section" aria-label="할 일 입력">
+        <form id="todoForm" class="todo-form">
+          <label for="todoInput" class="visually-hidden">할 일 입력</label>
+          <input
+            id="todoInput"
+            name="todoInput"
+            type="text"
+            maxlength="120"
+            placeholder="할 일을 입력하세요"
+            autocomplete="off"
+          />
+          <button type="submit" aria-label="할 일 추가">
+            <span class="action-glyph" aria-hidden="true">+</span>
+            <span class="visually-hidden">추가</span>
+          </button>
+        </form>
+        <div class="input-meta">
+          <p id="inputMessage" class="input-message" role="status"></p>
+          <p id="inputCount" class="input-count" aria-live="polite">0/120</p>
+        </div>
+      </section>
+
+      <section class="controls-section" aria-label="상태 필터 및 남은 개수">
+        <div class="filters" role="group" aria-label="Todo 필터">
+          <button class="filter-btn active" type="button" data-filter="all">
+            <span class="filter-btn-label">전체</span>
+          </button>
+          <button class="filter-btn" type="button" data-filter="active">
+            <span class="filter-btn-label">진행</span>
+          </button>
+          <button class="filter-btn" type="button" data-filter="completed">
+            <span class="filter-btn-label">완료</span>
+          </button>
+        </div>
+        <p id="remainingCount" class="remaining-count">남은 할 일 0개</p>
+      </section>
+
+      <section class="todo-list-section" aria-label="Todo 목록">
+        <ul id="todoList" class="todo-list"></ul>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
